@@ -2,11 +2,12 @@ import React from 'react'
 import { FaFileAlt } from "react-icons/fa";
 import { MdOutlineFileDownload } from "react-icons/md";
 import { IoCloseOutline } from "react-icons/io5";
-import { motion } from "framer-motion"
+import { motion } from 'framer-motion';
 
-function Card({data ,refrence}) {
+
+function Card({data,reference }) {
   return (
-    < motion.div  drag dragConstraints={refrence} whileDrag={{scale:1.2}} dragElastic={0.1} className= 'flex-shrink-0 relative w-60 h-72 rounded-[45px] bg-zinc-900/90  text-white py-10 px-8 overflow-hidden' > 
+    < motion.div drag dragConstraints={reference} whileDrag={{scale:1.1}}  dragElastic={0.1} dragTransition={{bounceDamping:50,bounceStiffness:100}} className= 'flex-shrink-0 relative w-60 h-72 rounded-[45px] bg-zinc-900/90  text-white py-10 px-8 overflow-hidden' > 
     <FaFileAlt/>
     <p className='text-sm mt-5 leading-tight font-semibold'>{data.desc}</p>
     <div className='footer absolute bottom-0   w-full  left-0   '>
@@ -18,7 +19,7 @@ function Card({data ,refrence}) {
         </span>
     </div>
     { data.tag.isOpen && (
-<div className={`tag w-full p-3 buttom-0 ${data.tag.tagColor==="blue" ? "bg-blue-600" :"bg-green-600"} flex items-center justify-center `}>
+<div className={`tag w-full p-3 buttom-0 ${data.tag.tagColor=== "blue" ? "bg-blue-600" : "bg-green-600"} flex items-center justify-center `}>
 <h3 className='text-sm font-semibold'>{data.tag.tagTitle}</h3>
     </div>
       )}
